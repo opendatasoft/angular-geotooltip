@@ -1,0 +1,13 @@
+.geotooltip-sourcetext {
+	border-bottom: 1px dotted #000000;
+	cursor: help;
+}
+
+#geotooltip {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	top: 100px;
+	left: 100px;
+	visibility: hidden;
+}
