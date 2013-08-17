@@ -6,14 +6,16 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css">
-    <link rel="stylesheet" href="styles/main.css">    
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+    <![endif]-->
   </head>
   <body ng-app="ngGeotooltipApp">
     <div class="container" ng-controller="RootController">
       <div class="row">
-        <div class="col-lg-8 col-offset-2">
+        <div class="col-lg-8 col-lg-offset-2">
           <h3>2D tooltip</h3>
           <p>
             Blabla blabla bla blabla
@@ -52,8 +54,8 @@
       </div>
     </div>
 
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/leaflet/dist/leaflet.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="scripts/app.js"></script>
   <script src="../src/geotooltip.js"></script>

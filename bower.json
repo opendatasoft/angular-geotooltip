@@ -1,12 +1,9 @@
 {
   "name": "ngGeotooltip",
   "version": "1.0.0",
-  "dependencies": {
-    "angular": ">1.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "angular-mocks": ">1.0.0",
-    "angular-scenario": ">1.0.0",
-    "bootstrap": "3.0.0"
+    "angular-scenario": ">1.0.0"
   }
 }
