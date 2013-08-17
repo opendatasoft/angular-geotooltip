@@ -5,10 +5,10 @@ angular.module('ngGeotooltipApp')
 		// The container is shared between directives to avoid performance issues
 		var container = angular.element('<div id="geotooltip" style="visibility: hidden; position: absolute;"></div>');
 		var map = null;
-		var layer = null;
+		var layerGroup = null;
 		var displayed = false;
 
-		var displayTooltip = function(tippedElement, coords, width, height) {
+		var displayTooltip = function(tippedElement, width, height, coords, geoJson) {
 			if (!displayed) {
 				displayed = true;
 
@@ -35,13 +35,27 @@ angular.module('ngGeotooltipApp')
 	            	map.invalidateSize();
 	            }
 
-                var point = new L.LatLng(coords[0], coords[1]);
-                map.setView(point, 12);
-
-                if (layer !== null) {
-                	map.removeLayer(layer);
+                if (layerGroup !== null) {
+                	map.removeLayer(layerGroup);
                 }
-                layer = L.marker(point).addTo(map);
+                layerGroup = L.layerGroup();
+                var bounds = new L.LatLngBounds();
+
+                if (coords) {
+                	var point = new L.LatLng(coords[0], coords[1]);
+                	var pointLayer = L.marker(point);
+                	layerGroup.addLayer(pointLayer);
+                	bounds.extend(point);
+                }
+
+                if (geoJson) {
+                	var geoJsonLayer = L.geoJson(geoJson);
+                	layerGroup.addLayer(geoJsonLayer);
+                	bounds.extend(geoJsonLayer.getBounds());
+                }
+                //map.setView(point, 12);
+                layerGroup.addTo(map);
+                map.fitBounds(bounds);
                 container.css('visibility', 'visible');
             }
 		};
@@ -59,12 +73,15 @@ angular.module('ngGeotooltipApp')
 			scope: {
 				'coords': '=',
 				'width': '@',
-				'height': '@'
+				'height': '@',
+				'delay': '@',
+				'geojson': '='
 			},
 			link: function(scope, element, attrs) {
 				var tooltipPop = null;
 				var tooltipWidth = '200px';
 				var tooltipHeight = '200px';
+				var delay = attrs.delay || 1000
 				if (attrs.height) {
 					tooltipHeight = attrs.height+'px';
 				}
@@ -75,11 +92,11 @@ angular.module('ngGeotooltipApp')
 				// Events
 				element.bind('mouseenter', function(e) {
 					tooltipPop = $timeout(function() {
-						displayTooltip(element, scope.coords, tooltipWidth, tooltipHeight);
-					}, 1000).then(function() { tooltipPop = null; });
+						displayTooltip(element, tooltipWidth, tooltipHeight, scope.coords, scope.geojson);
+					}, delay).then(function() { tooltipPop = null; });
 				});
 				element.bind('click', function(e) {
-					displayTooltip(element, scope.coords, tooltipWidth, tooltipHeight);
+					displayTooltip(element, tooltipWidth, tooltipHeight, scope.coords, scope.geojson);
 					if (tooltipPop !== null) {
 						// Chances are we triggered the original timer
 						$timeout.cancel(tooltipPop);
