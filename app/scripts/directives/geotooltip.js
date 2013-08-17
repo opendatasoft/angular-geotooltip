@@ -3,7 +3,7 @@
 angular.module('ngGeotooltipApp')
 	.directive('geotooltip', ['$timeout', '$window', function ($timeout, $window) {
 		// The container is shared between directives to avoid performance issues
-		var container = angular.element('<div id="geotooltip"></div>');
+		var container = angular.element('<div id="geotooltip" style="visibility: hidden; position: absolute;"></div>');
 		var map = null;
 		var layer = null;
 		var displayed = false;
@@ -52,7 +52,7 @@ angular.module('ngGeotooltipApp')
 		}
 
 		return {
-			template: '<span ng-transclude class="geotooltip-sourcetext"></span>',
+			template: '<span ng-transclude style="border-bottom: 1px dotted #000000; cursor: help;"></span>',
 			replace: true,
 			restrict: 'E',
 			transclude: true,

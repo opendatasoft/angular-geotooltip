@@ -1,9 +1,0 @@
-.geotooltip-sourcetext {
-	border-bottom: 1px dotted #000000;
-	cursor: help;
-}
-
-#geotooltip {
-	position: absolute;
-	visibility: hidden;
-}
