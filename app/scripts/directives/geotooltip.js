@@ -72,9 +72,10 @@ angular.module('ngGeotooltipApp')
 				'geojson': '='
 			},
 			link: function(scope, element, attrs) {
-				var tooltipPop = null;
 				var tooltipWidth = '200px';
 				var tooltipHeight = '200px';
+				var tooltipPop = null;
+
 				var delay = attrs.delay || 1000;
 				if (attrs.height) {
 					tooltipHeight = attrs.height+'px';
@@ -87,13 +88,15 @@ angular.module('ngGeotooltipApp')
 				element.bind('mouseenter', function(e) {
 					tooltipPop = $timeout(function() {
 						displayTooltip(element, tooltipWidth, tooltipHeight, scope.coords, scope.geojson);
-					}, delay).then(function() { tooltipPop = null; });
+						tooltipPop = null;
+					}, delay);
 				});
 				element.bind('click', function(e) {
 					displayTooltip(element, tooltipWidth, tooltipHeight, scope.coords, scope.geojson);
 					if (tooltipPop !== null) {
 						// Chances are we triggered the original timer
 						$timeout.cancel(tooltipPop);
+						tooltipPop = null;
 					}
 				})
 				element.bind('mouseleave', function(e) {
@@ -101,6 +104,7 @@ angular.module('ngGeotooltipApp')
 					if (tooltipPop !== null) {
 						// We are currently counting down until the tooltip appearance, let's forget it
 						$timeout.cancel(tooltipPop);
+						tooltipPop = null;
 					}
 					
 				});
