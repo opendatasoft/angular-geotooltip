@@ -14,7 +14,8 @@ Just add ng-geotooltip.js in your page.
 TODO
 
 ### Development
-If you want to contribute and develop:
+If you want to contribute and develop, you can run the demo page and start from there:
 - setup the environment: `bower install --dev`
 - run a local server: `grunt server`
-- build: `grunt`
+
+To build a distribuable JS file: `grunt`
