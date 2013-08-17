@@ -13,11 +13,19 @@
   <body ng-app="ngGeotooltipApp">
     <div class="container" ng-controller="RootController">
       <div class="row">
-        <div class="col-lg-6 col-offset-3">
+        <div class="col-lg-8 col-offset-2">
           <h3>2D tooltip</h3>
           <p>
             Blabla blabla bla blabla
+            <pre>&lt;geotooltip coords="pointCoordinates"&gt;{{ pointCoordinates }}&lt;/geotooltip&gt;</pre>
             <geotooltip coords="pointCoordinates">{{ pointCoordinates }}</geotooltip>
+          </p>
+
+          <h3>2D tooltip with specific sizes</h3>
+          <p>
+            Blabla blabla bla blabla
+            <pre>&lt;geotooltip coords="pointCoordinates" width="400" height="300"&gt;{{ pointCoordinates }}&lt;/geotooltip&gt;</pre>
+            <geotooltip coords="pointCoordinates" width="400" height="300">{{ pointCoordinates }}</geotooltip>
           </p>
         </div>
       </div>

@@ -5,9 +5,5 @@
 
 #geotooltip {
 	position: absolute;
-	width: 200px;
-	height: 200px;
-	top: 100px;
-	left: 100px;
 	visibility: hidden;
 }
