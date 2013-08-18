@@ -150,11 +150,11 @@ module.exports = function (grunt) {
     },
     karma: {
       unit: {
-        configFile: 'karma.conf.js',
+        configFile: 'test/karma.conf.js',
         singleRun: true
       },
       e2e: {
-        configFile: 'karma-e2e.conf.js',
+        configFile: 'test/karma-e2e.conf.js',
         singleRun: true
       }
     },
