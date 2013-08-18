@@ -85,7 +85,7 @@ angular.module('ng-geotooltip', [])
 				}
 
 				// Events
-				element.bind('mouseenter', function(e) {
+				element.bind('mouseover', function(e) {
 					tooltipPop = $timeout(function() {
 						displayTooltip(element, tooltipWidth, tooltipHeight, scope.coords, scope.geojson);
 						tooltipPop = null;
@@ -99,7 +99,7 @@ angular.module('ng-geotooltip', [])
 						tooltipPop = null;
 					}
 				})
-				element.bind('mouseleave', function(e) {
+				element.bind('mouseout', function(e) {
 					hideTooltip();
 					if (tooltipPop !== null) {
 						// We are currently counting down until the tooltip appearance, let's forget it
