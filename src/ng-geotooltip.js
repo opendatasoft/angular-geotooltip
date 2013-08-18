@@ -60,7 +60,7 @@ angular.module('ng-geotooltip', [])
 		}
 
 		return {
-			template: '<span ng-transclude style="border-bottom: 1px dotted #000000; cursor: help;"></span>',
+			template: '<span ng-transclude style="border-bottom: 1px dotted #000000; cursor: help;" class="geotooltip"></span>',
 			replace: true,
 			restrict: 'E',
 			transclude: true,

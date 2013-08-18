@@ -60,12 +60,21 @@ module.exports = function (grunt) {
           }
         }
       },
-      test: {
+      // test: {
+      //   options: {
+      //     middleware: function (connect) {
+      //       return [
+      //         mountFolder(connect, '.tmp'),
+      //         mountFolder(connect, 'test')
+      //       ];
+      //     }
+      //   }
+      // },
+      e2e: {
         options: {
           middleware: function (connect) {
             return [
-              mountFolder(connect, '.tmp'),
-              mountFolder(connect, 'test')
+              mountFolder(connect, yeomanConfig.app)
             ];
           }
         }
@@ -184,7 +193,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
-    'connect:test',
+    'connect:e2e',
     'karma'
   ]);
 
