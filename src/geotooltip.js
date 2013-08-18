@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ngGeotooltipApp')
+angular.module('ng-geotooltip', [])
 	.directive('geotooltip', ['$timeout', '$window', function ($timeout, $window) {
 		// The container is shared between directives to avoid performance issues
 		var container = angular.element('<div id="geotooltip" style="visibility: hidden; position: absolute;"></div>');
