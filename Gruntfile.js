@@ -161,8 +161,8 @@ module.exports = function (grunt) {
     uglify: {
       dist: {
         files: {
-          '<%= yeoman.dist %>/geotooltip.min.js': [
-            '<%= yeoman.dist %>/geotooltip.js'
+          '<%= yeoman.dist %>/ng-geotooltip.min.js': [
+            '<%= yeoman.dist %>/ng-geotooltip.js'
           ]
         }
       }
