@@ -15,7 +15,8 @@ TODO
 
 ### Development
 If you want to contribute and develop, you can run the demo page and start from there:
-- setup the environment: `bower install --dev`
+- setup the build environment: `npm install`
+- setup the test environment for Angular: `bower install --dev`
 - run a local server: `grunt server`
 
 To build a distribuable JS file: `grunt`
