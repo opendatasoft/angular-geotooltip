@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+    <![endif]-->
+  </head>
+  <body ng-app="ngGeotooltipApp">
+    <div class="container" ng-controller="RootController">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h3>Relative</h3>
+            <div style="position: relative;">
+              <table border="1">
+                <tr>
+                  <td>Line one
+                    <geotooltip coords="pointCoordinates" delay="0">{{ pointCoordinates }}</geotooltip>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Line two
+                    <geotooltip coords="pointCoordinates" delay="0">{{ pointCoordinates }}</geotooltip>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Line three
+                    <geotooltip coords="pointCoordinates" delay="0">{{ pointCoordinates }}</geotooltip>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+      </div>
+    </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="../src/ng-geotooltip.js"></script>
+  <!-- endbuild -->
+  </body>
+</html>
