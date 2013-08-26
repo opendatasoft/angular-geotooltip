@@ -17,9 +17,9 @@ angular.module('ng-geotooltip', [])
             container.css('height', height);
 
             // Position it at the right place
-            container.css('top', tippedElement.prop('offsetTop')+tippedElement.prop('offsetHeight')+'px');
-            container.css('left', tippedElement.prop('offsetLeft')+tippedElement.prop('offsetWidth')+'px');
-            tippedElement.after(container);
+            container.css('top', tippedElement.prop('offsetHeight')+'px');
+            container.css('left', tippedElement.prop('offsetWidth')+'px');
+            tippedElement.append(container);
             
             if (map === null) {
                 map = new L.map(container[0]);
@@ -60,7 +60,7 @@ angular.module('ng-geotooltip', [])
         };
 
         return {
-            template: '<span ng-transclude style="border-bottom: 1px dotted #000000; cursor: help;" class="geotooltip"></span>',
+            template: '<span ng-transclude style="border-bottom: 1px dotted #000000; cursor: help; position: relative;" class="geotooltip"></span>',
             replace: true,
             restrict: 'E',
             transclude: true,
