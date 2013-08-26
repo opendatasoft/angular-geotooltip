@@ -3,7 +3,7 @@
 angular.module('ng-geotooltip', [])
     .directive('geotooltip', ['$timeout', function ($timeout) {
         // The container is shared between directives to avoid performance issues
-        var container = angular.element('<div id="geotooltip" style="visibility: hidden; position: absolute;"></div>');
+        var container = angular.element('<div id="geotooltip" style="opacity: 0; transition: opacity 200ms ease-out; position: absolute;"></div>');
         var map = null;
         var layerGroup = null;
         
@@ -52,11 +52,11 @@ angular.module('ng-geotooltip', [])
             //map.setView(point, 12);
             layerGroup.addTo(map);
             map.fitBounds(bounds);
-            container.css('visibility', 'visible');
+            container.css('opacity', '1');
         };
 
         var hideTooltip = function() {
-            container.css('visibility', 'hidden');
+            container.css('opacity', '0');
         };
 
         return {
