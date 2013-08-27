@@ -18,7 +18,7 @@
                 container.css('height', height);
 
                 // Position it at the right place
-                container.css('top', tippedElement.height()+tippedElement.offset().top-jQuery(document).scrollTop()+'px');
+                container.css('top', tippedElement.height()+tippedElement.offset().top-jQuery(document).scrollTop()+5+'px');
                 container.css('left', tippedElement.offset().left-jQuery(document).scrollLeft()+'px');
                 tippedElement.append(container);
                 
