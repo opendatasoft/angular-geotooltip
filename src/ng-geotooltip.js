@@ -4,7 +4,7 @@
     angular.module('ng-geotooltip', [])
         .directive('geotooltip', ['$timeout', function ($timeout) {
             // The container is shared between directives to avoid performance issues
-            var container = angular.element('<div id="geotooltip" style="opacity: 0; transition: opacity 200ms ease-out; position: fixed; z-index: 40000;"></div>');
+            var container = angular.element('<div id="geotooltip" style="opacity: 0; transition: opacity 200ms ease-out; position: fixed; z-index: 40000; visibility: hidden;"></div>');
             var map = null;
             var layerGroup = null;
             
@@ -26,7 +26,7 @@
                     map = new L.map(container[0], {zoomControl: false});
                     var tilesUrl = 'http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png';
                     var attrib = 'Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"> - Map data © <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors';
-                    var tileLayer = new L.TileLayer(tilesUrl, {minZoom: 1, maxZoom: 18, attribution: attrib, subdomains: '1234'});
+                    var tileLayer = new L.TileLayer(tilesUrl, {minZoom: 1, maxZoom: 15, attribution: attrib, subdomains: '1234'});
                     map.addLayer(tileLayer);
                 } else if (resized) {
                     map.invalidateSize();
@@ -50,14 +50,18 @@
                     layerGroup.addLayer(geoJsonLayer);
                     bounds.extend(geoJsonLayer.getBounds());
                 }
-                //map.setView(point, 12);
+
                 layerGroup.addTo(map);
                 map.fitBounds(bounds);
                 container.css('opacity', '1');
+                container.css('visibility', 'visible');
             };
 
             var hideTooltip = function() {
                 container.css('opacity', '0');
+                $timeout(function() {
+                    container.css('visibility', 'hidden');
+                }, 200);
             };
 
             return {
