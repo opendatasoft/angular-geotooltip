@@ -52,7 +52,7 @@
                 }
 
                 layerGroup.addTo(map);
-                map.fitBounds(bounds);
+                map.fitBounds(bounds, {reset: true});
                 container.css('opacity', '1');
                 container.css('visibility', 'visible');
             };
