@@ -25,7 +25,8 @@
                 if (map === null) {
                     map = new L.map(container[0], {zoomControl: false});
                     var tilesUrl = 'http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png';
-                    var attrib = 'Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"> - Map data © <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors';
+                    var attrib = 'Tiles <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"> - Map data © <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>';
+//                    var attrib = 'Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"> - Map data © <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors';
                     var tileLayer = new L.TileLayer(tilesUrl, {minZoom: 1, maxZoom: 16, attribution: attrib, subdomains: '1234'});
                     map.addLayer(tileLayer);
                 } else if (resized) {
@@ -39,6 +40,9 @@
                 var bounds = new L.LatLngBounds();
 
                 if (coords) {
+                    if (angular.isString(coords)) {
+                        coords = coords.split(',');
+                    }
                     var point = new L.LatLng(coords[0], coords[1]);
                     var pointLayer = L.marker(point);
                     layerGroup.addLayer(pointLayer);
@@ -46,6 +50,9 @@
                 }
 
                 if (geoJson) {
+                    if (angular.isString(geoJson)) {
+                        geoJson = angular.fromJson(geoJson);
+                    }
                     var geoJsonLayer = L.geoJson(geoJson);
                     layerGroup.addLayer(geoJsonLayer);
                     bounds.extend(geoJsonLayer.getBounds());
