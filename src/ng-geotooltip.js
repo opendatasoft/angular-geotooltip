@@ -4,7 +4,7 @@
     angular.module('ng-geotooltip', [])
         .directive('geotooltip', ['$timeout', function ($timeout) {
             // The container is shared between directives to avoid performance issues
-            var container = angular.element('<div id="geotooltip" style="opacity: 0; transition: opacity 200ms ease-out; position: absolute; z-index: 40000;"></div>');
+            var container = angular.element('<div id="geotooltip" style="opacity: 0; transition: opacity 200ms ease-out; position: fixed; z-index: 40000;"></div>');
             var map = null;
             var layerGroup = null;
             
@@ -18,8 +18,8 @@
                 container.css('height', height);
 
                 // Position it at the right place
-                container.css('top', tippedElement.prop('offsetHeight')+'px');
-                container.css('left', tippedElement.prop('offsetWidth')+'px');
+                container.css('top', tippedElement.height()+tippedElement.offset().top-jQuery(document).scrollTop()+'px');
+                container.css('left', tippedElement.width()+tippedElement.offset().left-jQuery(document).scrollLeft()+'px');
                 tippedElement.append(container);
                 
                 if (map === null) {
@@ -61,7 +61,7 @@
             };
 
             return {
-                template: '<span ng-transclude style="border-bottom: 1px dotted #000000; cursor: help; position: relative;" class="geotooltip"></span>',
+                template: '<span ng-transclude style="border-bottom: 1px dotted #000000; cursor: help;" class="geotooltip"></span>',
                 replace: true,
                 restrict: 'E',
                 transclude: true,

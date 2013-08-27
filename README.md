@@ -3,9 +3,10 @@
 An AngularJS directive to display cute little tooltips containing a geographical marker or shape and a map of its
 surroundings.
 
-### Compatibility
-- assumed to work on any version of AngularJS
-- assumed to work on Leaflet 0.5+
+### Dependencies
+- AngularJS (assumed to work on any version)
+- Leaflet (assumed to work on 0.5+)
+- jQuery (assumed to work on 1.6+)
 
 ### Installation
 Just add ng-geotooltip.js in your page.
