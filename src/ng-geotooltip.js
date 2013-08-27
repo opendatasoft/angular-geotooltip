@@ -4,7 +4,7 @@
     angular.module('ng-geotooltip', [])
         .directive('geotooltip', ['$timeout', function ($timeout) {
             // The container is shared between directives to avoid performance issues
-            var container = angular.element('<div id="geotooltip" style="opacity: 0; transition: opacity 200ms ease-out; position: absolute;"></div>');
+            var container = angular.element('<div id="geotooltip" style="opacity: 0; transition: opacity 200ms ease-out; position: absolute; z-index: 40000;"></div>');
             var map = null;
             var layerGroup = null;
             
