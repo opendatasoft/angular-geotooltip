@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ngGeotooltipApp', ['ng-geotooltip'])
+angular.module('geotooltipApp', ['geotooltip'])
   .controller('RootController', ['$scope', function($scope) {
     $scope.pointCoordinates = [48.857365, 2.373387];
     $scope.geoJson = {

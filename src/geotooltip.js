@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('ng-geotooltip', [])
+    angular.module('geotooltip', [])
         .directive('geotooltip', ['$timeout', function ($timeout) {
             // The container is shared between directives to avoid performance issues
             var container = angular.element('<div id="geotooltip" style="opacity: 0; transition: opacity 200ms ease-out; position: fixed; z-index: 40000; visibility: hidden;"></div>');
