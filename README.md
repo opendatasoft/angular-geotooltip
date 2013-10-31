@@ -17,7 +17,7 @@ You can inject a custom configuration :
 <script language="text/javascript">
   var app = angular.module('geotooltip').config(function(GeoTooltipConfigProvider) {
     GeoTooltipConfigProvider.setConfig({});
-  })
+  });
 </script>
 ```
 TODO : accepted configuration keys

@@ -9,11 +9,11 @@
 
             this.setConfig = function(customConfig) {
                 this.customConfig = customConfig;
-            }
+            };
 
             this.$get = function() {
                 return angular.extend({}, this.defaultConfig, this.customConfig);
-            }
+            };
         })
         .directive('geotooltip', ['$timeout', 'GeoTooltipConfig', function ($timeout, GeoTooltipConfig) {
             console.log(GeoTooltipConfig);
