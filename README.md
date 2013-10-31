@@ -1,4 +1,3 @@
-*WORK IN PROGRESS*
 ## geotooltip
 An AngularJS directive to display cute little tooltips containing a geographical marker or shape and a map of its
 surroundings.
@@ -13,7 +12,7 @@ Just add geotooltip.js in your page.
 
 #### Configuration
 You can inject a custom configuration :
-```
+```html
 <script language="text/javascript">
   var app = angular.module('geotooltip').config(function(GeoTooltipConfigProvider) {
     GeoTooltipConfigProvider.setConfig({
