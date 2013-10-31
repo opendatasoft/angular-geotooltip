@@ -6,7 +6,11 @@
             this.defaultConfig = {
                 tiles: 'http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png',
                 subdomains: '1234',
-                attribution: 'Tiles <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"> - Map data © <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>'
+                attribution: 'Tiles <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"> - Map data © <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>',
+                defaultDelay: 1000,
+                defaultWidth: 200,
+                defaultHeight: 200,
+                maxZoom: 16
             };
 
             this.setConfig = function(customConfig) {
@@ -50,7 +54,7 @@
                 
                 if (map === null) {
                     map = new L.map(container[0], {zoomControl: false});
-                    var tileLayer = new L.TileLayer(GeoTooltipConfig.tiles, {minZoom: 1, maxZoom: 16, attribution: GeoTooltipConfig.attribution, subdomains: GeoTooltipConfig.subdomains});
+                    var tileLayer = new L.TileLayer(GeoTooltipConfig.tiles, {minZoom: 1, maxZoom: GeoTooltipConfig.maxZoom, attribution: GeoTooltipConfig.attribution, subdomains: GeoTooltipConfig.subdomains});
                     map.addLayer(tileLayer);
                 } else if (resized) {
                     map.invalidateSize();
@@ -107,17 +111,10 @@
                     'geojson': '='
                 },
                 link: function(scope, element, attrs) {
-                    var tooltipWidth = '200px';
-                    var tooltipHeight = '200px';
+                    var tooltipWidth = (attrs.width || GeoTooltipConfig.defaultWidth) + 'px';
+                    var tooltipHeight = (attrs.height || GeoTooltipConfig.defaultHeight) + 'px';
                     var tooltipPop = null;
-
-                    var delay = attrs.delay || 1000;
-                    if (attrs.height) {
-                        tooltipHeight = attrs.height+'px';
-                    }
-                    if (attrs.width) {
-                        tooltipWidth = attrs.width+'px';
-                    }
+                    var delay = attrs.delay || GeoTooltipConfig.defaultDelay;
 
                     // Events
                     element.bind('mouseover', function() {
