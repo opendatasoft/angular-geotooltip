@@ -59,6 +59,11 @@
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="scripts/app.js"></script>
   <script src="../src/geotooltip.js"></script>
+  <script>
+  var app = angular.module('geotooltip').config(function(GeoTooltipConfigProvider) {
+    GeoTooltipConfigProvider.setConfig({});
+  });
+  </script>
   <!-- endbuild -->
   </body>
 </html>

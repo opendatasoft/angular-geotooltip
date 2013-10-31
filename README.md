@@ -12,7 +12,15 @@ surroundings.
 Just add geotooltip.js in your page.
 
 #### Configuration
-TODO
+You can inject a custom configuration :
+```
+<script language="text/javascript">
+  var app = angular.module('geotooltip').config(function(GeoTooltipConfigProvider) {
+    GeoTooltipConfigProvider.setConfig({});
+  })
+</script>
+```
+TODO : accepted configuration keys
 
 ### Development
 If you want to contribute and develop, you can run the demo page and start from there:

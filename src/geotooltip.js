@@ -2,7 +2,21 @@
     'use strict';
 
     angular.module('geotooltip', [])
-        .directive('geotooltip', ['$timeout', function ($timeout) {
+        .provider('GeoTooltipConfig', function() {
+            this.defaultConfig = {
+                
+            };
+
+            this.setConfig = function(customConfig) {
+                this.customConfig = customConfig;
+            }
+
+            this.$get = function() {
+                return angular.extend({}, this.defaultConfig, this.customConfig);
+            }
+        })
+        .directive('geotooltip', ['$timeout', 'GeoTooltipConfig', function ($timeout, GeoTooltipConfig) {
+            console.log(GeoTooltipConfig);
             // The container is shared between directives to avoid performance issues
             var container = angular.element('<div id="geotooltip" style="opacity: 0; transition: opacity 200ms ease-out; position: fixed; z-index: 40000; visibility: hidden;"></div>');
             var map = null;
