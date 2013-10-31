@@ -1,5 +1,5 @@
 *WORK IN PROGRESS*
-## ng-geotooltip
+## geotooltip
 An AngularJS directive to display cute little tooltips containing a geographical marker or shape and a map of its
 surroundings.
 
@@ -9,7 +9,7 @@ surroundings.
 - jQuery (assumed to work on 1.6+)
 
 ### Installation
-Just add ng-geotooltip.js in your page.
+Just add geotooltip.js in your page.
 
 #### Configuration
 TODO
