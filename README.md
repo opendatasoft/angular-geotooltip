@@ -2,6 +2,10 @@
 An AngularJS directive to display cute little tooltips containing a geographical marker or shape and a map of its
 surroundings.
 
+### Examples
+An example page is available here.
+You can also see it live in action on <a href="http://public.opendatasoft.com/explore/dataset/grandnancy_zones_urbanisees/#?tab=table" target="_blank">OpenDataSoft's portal</a>.
+
 ### Dependencies
 - AngularJS (assumed to work on any version)
 - Leaflet (assumed to work on 0.5+)
