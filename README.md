@@ -26,7 +26,7 @@ The available settings are:
 - `tiles`: URL pattern to retrieve the map tiles from, as expected by Leaflet. Defaults to <a href="http://developer.mapquest.com/web/products/open/map" target="_blank">MapQuest OSM Tiles</a>.
 - `subdomains`: Pattern for the tile server round-robin, as expected by Leaflet. Defaults to the pattern relevant to MapQuest OSM Tiles.
 - `attribution`: Attribution text below the map. Defaults to the relevant attribution for MapQuest and OpenStreetMap.
-- `defaultDelay`: Default delay in milliseconds to display the tooltip. Defaults to 1 second.
+- `defaultDelay`: Default delay in milliseconds to display the tooltip. Defaults to 500 milliseconds.
 - `defaultWidth`: Default width (in pixels). Defaults to 200.
 - `defaultHeight`: Default height (in pixels). Defaults to 200.
 - `maxZoom`: Maximum zoom for tooltips (based on the Leaflet zoom system). If you see tooltips for points that you consider to be too narrow, you can reduce it. Defaults to 16 (which is the maximum).

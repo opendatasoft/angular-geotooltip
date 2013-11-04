@@ -7,7 +7,7 @@
                 tiles: 'http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png',
                 subdomains: '1234',
                 attribution: 'Tiles <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"> - Map data © <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>',
-                defaultDelay: 1000,
+                defaultDelay: 500,
                 defaultWidth: 200,
                 defaultHeight: 200,
                 maxZoom: 16
