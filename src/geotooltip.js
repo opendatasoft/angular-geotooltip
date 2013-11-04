@@ -50,7 +50,7 @@
                 } else {
                     container.css('left', tippedElement.offset().left-jQuery(document).scrollLeft()-container.width()+'px');
                 }
-                tippedElement.append(container);
+                tippedElement.after(container);
                 
                 if (map === null) {
                     map = new L.map(container[0], {zoomControl: false});
@@ -117,7 +117,7 @@
                     var delay = attrs.delay || GeoTooltipConfig.defaultDelay;
 
                     // Events
-                    element.bind('mouseover', function() {
+                    element.bind('mouseenter', function() {
                         if (delay === 0) {
                             displayTooltip(element, tooltipWidth, tooltipHeight, scope.coords, scope.geojson);
                         } else {
