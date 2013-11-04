@@ -1,5 +1,5 @@
 {
-  "name": "ng-geotooltip",
+  "name": "geotooltip",
   "version": "0.0.0",
   "dependencies": {
     "karma-script-launcher": "~0.1.0",
