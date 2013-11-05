@@ -13,7 +13,7 @@ You can also see it live in action on <a href="http://public.opendatasoft.com/ex
 - jQuery (assumed to work on 1.6+)
 
 ### Installation
-Just add geotooltip.js in your page (and the dependencies if you don't have them already).
+Just add geotooltip.js in your page (and the dependencies if you don't have them already), and include the "geotooltip" module as a dependency to your AngularJS application.
 
 #### Usage
 ```html
@@ -55,3 +55,6 @@ If you want to contribute and develop, you can run the demo page and start from 
 - run a local server: `grunt server`
 
 To build a distribuable JS file: `grunt`
+
+### License
+[This project is released under the MIT License.](LICENSE)
