@@ -4,6 +4,7 @@ surroundings.
 
 ### Examples
 <strong><a href="http://opendatasoft.github.io/angular-geotooltip/demo" target="_blank">An example page is available here.</a></strong>
+
 You can also see it live in action on <a href="http://public.opendatasoft.com/explore/dataset/grandnancy_zones_urbanisees/#?tab=table" target="_blank">OpenDataSoft's portal</a>.
 
 ### Dependencies
