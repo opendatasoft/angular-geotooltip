@@ -1,4 +1,4 @@
-## geotooltip
+## angular-geotooltip
 An AngularJS directive to display cute little tooltips containing a geographical marker or shape and a map of its
 surroundings.
 
