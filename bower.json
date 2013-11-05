@@ -1,0 +1,10 @@
+{
+  "name": "geotooltip",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+  	"angular": ">1.0.0",
+    "angular-mocks": ">1.0.0",
+    "angular-scenario": ">1.0.0"
+  }
+}
