@@ -136,7 +136,6 @@
                         }
                     });
                     element.bind('mouseleave', function() {
-                        console.log('mouseout');
                         hideTooltip();
                         if (tooltipPop !== null) {
                             // We are currently counting down until the tooltip appearance, let's forget it
