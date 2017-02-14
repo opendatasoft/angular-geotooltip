@@ -2,9 +2,9 @@
   'use strict';
   angular.module('geotooltip', []).provider('GeoTooltipConfig', function () {
     this.defaultConfig = {
-      tiles: 'http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png',
-      subdomains: '1234',
-      attribution: 'Tiles <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"> - Map data \xa9 <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>',
+      tiles: 'http://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      subdomains: 'abc',
+      attribution: '\xa9 <a href="http://www.openstreetmap.org/">OpenStreetMap contributors</a> \u2665',
       defaultDelay: 500,
       defaultWidth: 200,
       defaultHeight: 200,
@@ -20,18 +20,22 @@
     '$timeout',
     'GeoTooltipConfig',
     function ($timeout, GeoTooltipConfig) {
+      // The container is shared between directives to avoid performance issues
       var container = angular.element('<div id="geotooltip" style="opacity: 0; transition: opacity 200ms ease-out; position: fixed; z-index: 40000; visibility: hidden;"></div>');
       var map = null;
       var layerGroup = null;
       var displayTooltip = function (tippedElement, width, height, coords, geoJson) {
+        // Make the container the right size
         var resized = false;
         if (width !== container.css('width') || height !== container.css('height')) {
           resized = true;
         }
         container.css('width', width);
         container.css('height', height);
+        // Position it at the right place
         var availableBottomSpace = jQuery(window).height() - (tippedElement.offset().top - jQuery(document).scrollTop());
         if (container.height() < availableBottomSpace) {
+          // There is enough space below: let's place the tooltip right below the element
           container.css('top', tippedElement.height() + tippedElement.offset().top - jQuery(document).scrollTop() + 5 + 'px');
         } else {
           container.css('top', tippedElement.offset().top - jQuery(document).scrollTop() - 5 - container.height() + 'px');
@@ -105,6 +109,7 @@
           var tooltipHeight = (attrs.height || GeoTooltipConfig.defaultHeight) + 'px';
           var tooltipPop = null;
           var delay = attrs.delay || GeoTooltipConfig.defaultDelay;
+          // Events
           element.bind('mouseenter', function () {
             if (delay === 0) {
               displayTooltip(element, tooltipWidth, tooltipHeight, scope.coords, scope.geojson);
@@ -118,14 +123,15 @@
           element.bind('click', function () {
             displayTooltip(element, tooltipWidth, tooltipHeight, scope.coords, scope.geojson);
             if (tooltipPop !== null) {
+              // Chances are we triggered the original timer
               $timeout.cancel(tooltipPop);
               tooltipPop = null;
             }
           });
           element.bind('mouseleave', function () {
-            console.log('mouseout');
             hideTooltip();
             if (tooltipPop !== null) {
+              // We are currently counting down until the tooltip appearance, let's forget it
               $timeout.cancel(tooltipPop);
               tooltipPop = null;
             }
